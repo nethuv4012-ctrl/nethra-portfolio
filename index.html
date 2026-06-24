@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nethra's Portfolio</title>
+    <style>
+        /* Global Styles & Theme (Sky Blue and Purple) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e1b4b, #2e1065);
+            color: #f8fafc;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Stars Background */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: floatAndGlow linear infinite;
+        }
+
+        @keyframes floatAndGlow {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+                box-shadow: 0 0 10px #38bdf8, 0 0 20px #a855f7;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Frosted Glass Container Layout */
+        section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            text-align: center;
+        }
+
+        /* Typography Styling */
+        .bold-name {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #e2e8f0; /* Crisp Grey/White */
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+        }
+
+        .sub-title {
+            font-size: 1.2rem;
+            color: #94a3b8; /* Attractive Grey */
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #cbd5e1; /* Smooth Grey */
+            text-align: justify;
+            margin-bottom: 40px;
+        }
+
+        /* Skills Progress Bars */
+        .skills-container {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .skill-bar-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            color: #cbd5e1;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .progress-bar-bg {
+            background: rgba(255, 255, 255, 0.1);
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #38bdf8, #a855f7);
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+        }
+
+        /* Contact Section Styles */
+        .contact-info {
+            margin: 20px 0;
+            font-size: 1.3rem;
+            color: #e2e8f0;
+        }
+
+        .contact-info a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #a855f7;
+        }
+
+        /* Typing Animation Footer */
+        .typing-wrapper {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-top: 40px;
+            border-right: 3
