@@ -1,72 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nethra's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nethra's Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #4b0082, #6a0dad);
+      color: #eee;
+      overflow-x: hidden;
+    }
+
+    /* Background liquid effect */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,255,0.35);
+      mix-blend-mode: screen;
+      animation: liquid 8s infinite alternate;
+      z-index: -1;
+    }
+    @keyframes liquid {
+      from { transform: translateX(-20px) rotate(-2deg); }
+      to { transform: translateX(20px) rotate(2deg); }
+    }
+
+    /* Loading screen */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .glass {
+      width: 80px; height: 120px;
+      border: 3px solid #00f;
+      border-radius: 10px;
+      margin: 0 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .water {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      background: #00f;
+      animation: fill 3s forwards;
+    }
+    @keyframes fill {
+      to { height: 100%; }
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: grey;
+    }
+    header p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    h2 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .skills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .skill {
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 10px;
+      width: 150px;
+    }
+
+    /* Typing animation */
+    .typing {
+      font-size: 1.5em;
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 5s steps(40,end) forwards, blink 0.7s infinite;
+      margin: auto;
+    }
+    @keyframes typing {
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="glass"><div class="water"></div></div>
+    <div class="glass"></div>
+  </div>
 
-    <div id="loader">
-        <div class="glass-container">
-            <div class="water-loader"></div>
-            <p>Loading Creative Spaces...</p>
-        </div>
+  <header>
+  <h1> I am  Nethra </h1>
+  <p>
+    I am a <strong>First Year B.Sc. IT student</strong> at 
+    <em>RD National College of Arts and Science, Erode</em>.<br><br>
+    Officially, I’m a tech student.<br>
+    Practically, I’m a future app developer obsessed with basic performance code and modern design.<br>
+    I don't wait for opportunities—I build them.<br>
+    My focus is to join Google as a software & app developer.
+  </p>
+</header>
+
+  <section>
+    <h2>My Hobbies</h2>
+    <p>🎨 Drawing – super ahh pannuven<br>
+       🎵 Music – romba pudikkum<br>
+       ✂️ Handcraft making – romba pudikkum</p>
+  </section>
+
+  <section>
+    <h2>My Skills</h2>
+    <div class="skills">
+      <div class="skill">👌Skills: 80%</div>
+      <div class="skill">📐Math: 80%</div>
+      <div class="skill">🦾Hardwork: 100%</div>
+      <div class="skill">🧠Creativity: 95%</div>
+      <div class="skill">🤝Teamwork: 90%</div>
     </div>
+  </section>
 
-    <div id="main-content" class="hidden">
-        
-        <section class="hero">
-            <h1 class="bold-name">NETHRA❤️</h1>
-            <p class="tagline">Bsc.IT Student🎓 @ RD National College of Arts and Science🏫</p>
-            <div class="bio">
-                <p>Officially, I’m a tech student. Practically, I’m a future app developer obsessed with basic performance code and modern design. I don't wait for opportunities—I build them.</p>
-                <p><strong>My focus:</strong> To join Google as a Software & App Developer👩‍💻.</p>
-            </div>
-        </section>
+  <section>
+    <h2>Puzzle Section</h2>
+    <p>🧩 Simple puzzle arrangement coming soon...</p>
+  </section>
 
-        <section class="hobbies">
-            <h2>My Hobbies</h2>
-            <div class="hobby-grid">
-                <div class="hobby-card">🎨 Drawing (Romba pudikkum, super ah pannuven!)</div>
-                <div class="hobby-card">🎵 Listening to Music (Romba romba pudikkum!)</div>
-                <div class="hobby-card">✂️ Handcraft Making</div>
-            </div>
-        </section>
+  <section>
+    <h2>Contact</h2>
+    <p>WhatsApp: 9944670038<br>
+       Email: skynet.nethra@gmail.com</p>
+  </section>
 
-        <section class="skills">
-            <h2>My Attributes & Skills</h2>
-            <div class="skill-bar"><span>👌Skills - 80%</span><div class="bar"><div class="progress" style="width: 80%;"></div></div></div>
-            <div class="skill-bar"><span>📐Math - 80%</span><div class="bar"><div class="progress" style="width: 80%;"></div></div></div>
-            <div class="skill-bar"><span>🦾Hardwork - 100%</span><div class="bar"><div class="progress" style="width: 100%;"></div></div></div>
-            <div class="skill-bar"><span>🧠Creativity - 95%</span><div class="bar"><div class="progress" style="width: 95%;"></div></div></div>
-            <div class="skill-bar"><span>🤝Team Work - 90%</span><div class="bar"><div class="progress" style="width: 90%;"></div></div></div>
-        </section>
+  <footer>
+    <div class="typing">Thank you for visiting my website✨!</div>
+  </footer>
 
-        <section class="puzzle-section">
-            <h2>Mini Puzzle</h2>
-            <div class="puzzle-box">
-                <p>What is 5 + 5?</p>
-                <input type="text" id="puzzle-ans" placeholder="Your answer...">
-                <button onclick="checkPuzzle()">Solve</button>
-                <p id="puzzle-result"></p>
-            </div>
-        </section>
-
-        <footer class="contact">
-            <h2>Get In Touch</h2>
-            <p>💬 WhatsApp: <a href="https://wa.me/9944670038">9944670038</a></p>
-            <p>📧 Email: <a href="mailto:skynet.nethra@gmail.com">skynet.nethra@gmail.com</a></p>
-            
-            <div class="typing-container">
-                <span class="typing-text">Thank you for visiting my website✨!</span>
-            </div>
-        </footer>
-
-    </div>
-
-    <script src="script.js"></script>
+  <script>
+    // Hide loader after 3 seconds
+    setTimeout(() => {
+      document.getElementById('loader').style.display = 'none';
+    }, 3000);
+  </script>
 </body>
 </html>
