@@ -160,4 +160,132 @@
             font-weight: 700;
             color: #e2e8f0;
             margin-top: 40px;
-            border-right: 3
+            border-right: 3px solid #38bdf8;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: typing 3.5s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            0%, 90%, 100% { width: 0 }
+            30%, 80% { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #38bdf8; }
+        }
+
+        /* Navigation Buttons */
+        .nav-btn {
+            background: linear-gradient(90deg, #38bdf8, #a855f7);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container" id="starsContainer"></div>
+
+    <section id="profile">
+        <div class="glass-card">
+            <h1 class="bold-name">NETHRA❤️</h1>
+            <p class="sub-title">First Year B.Sc. IT Student🧑‍🎓 | RD National College of Arts and Science🏫</p>
+            
+            <p class="about-text">
+                Officially, I’m a tech student. Practically, I’m an app developer obsessed with high-performance code and modern design. I don't wait for opportunities—I build them. My focus is to join Google as a software developer and app developer👩‍💻, focusing on creating intuitive mobile and web applications that don't just look good but work flawlessly under the hood. I thrive in fast-paced environments, love exploring new tech stacks, and am always looking for the next big challenge👌. I’m ready to hit the ground running and bring fresh perspective to the table.
+            </p>
+
+            <a href="#about-stats" class="nav-btn">Scroll to See My Skills</a>
+        </div>
+    </section>
+
+    <section id="about-stats">
+        <div class="glass-card">
+            <h2 class="bold-name" style="font-size: 2.5rem;">MY ATTRIBUTES</h2>
+            <p class="sub-title">Driven by passion, backed by numbers</p>
+
+            <div class="skills-container">
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Skills</span><span>80%</span></div>
+                    <div class="progress-bar-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Math📐</span><span>80%</span></div>
+                    <div class="progress-bar-bg"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Creativity🧠</span><span>95%</span></div>
+                    <div class="progress-bar-bg"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Team Work🤝</span><span>90%</span></div>
+                    <div class="progress-bar-bg"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Hardwork🦾</span><span>100%</span></div>
+                    <div class="progress-bar-bg"><div class="progress-fill" style="width: 100%;"></div></div>
+                </div>
+            </div>
+
+            <a href="#contact" class="nav-btn" style="margin-top: 40px;">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="glass-card">
+            <h2 class="bold-name" style="font-size: 2.5rem;">LET'S CONNECT</h2>
+            <p class="sub-title">Feel free to reach out for collaborations</p>
+
+            <div class="contact-info">
+                <p>📱 WhatsApp: <a href="https://wa.me/9944670038" target="_blank">+91 9944670038</a></p>
+                <br>
+                <p>📧 Email: <a href="mailto:skynet.nethra@gmail.com">skynet.nethra@gmail.com</a></p>
+            </div>
+
+            <br><br>
+            <div class="typing-wrapper">
+                Thank you for visiting my website🤝!
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const container = document.getElementById('starsContainer');
+        const starCount = 60;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            // Randomize star sizes, positions and movement speeds
+            const size = Math.random() * 4 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${Math.random() * 100}vw`;
+            
+            const duration = Math.random() * 8 + 4;
+            star.style.animationDuration = `${duration}s`;
+            
+            const delay = Math.random() * 5;
+            star.style.animationDelay = `${delay}s`;
+
+            container.appendChild(star);
+        }
+    </script>
+</body>
+</html>
