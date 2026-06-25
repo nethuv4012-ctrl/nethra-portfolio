@@ -1,566 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nethu V · Future Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-<title>Future Portfolio</title>
+    body {
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    /* ---- Animated Background ---- */
+    .gradient1 {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: #6a00ff;
+      filter: blur(200px);
+      opacity: .3;
+      top: -150px;
+      left: -100px;
+      animation: float1 15s infinite alternate;
+      z-index: -3;
+    }
 
-<style>
+    .gradient2 {
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: #00d4ff;
+      filter: blur(200px);
+      opacity: .2;
+      bottom: -150px;
+      right: -100px;
+      animation: float2 15s infinite alternate;
+      z-index: -3;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
+    @keyframes float1 {
+      100% { transform: translate(200px, 100px); }
+    }
+    @keyframes float2 {
+      100% { transform: translate(-200px, -100px); }
+    }
 
-body{
-background:#050505;
-color:white;
-overflow-x:hidden;
-}
+    /* ---- particles container ---- */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
 
-/* ==========================
-   Animated Background
-========================== */
+    /* ---- Navbar ---- */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1200px;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, .05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 20px;
+      z-index: 1000;
+    }
 
-.gradient1{
-position:fixed;
-width:500px;
-height:500px;
-background:#6a00ff;
-filter:blur(200px);
-opacity:.3;
-top:-150px;
-left:-100px;
-animation:float1 15s infinite alternate;
-z-index:-3;
-}
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #00eaff;
+    }
 
-.gradient2{
-position:fixed;
-width:500px;
-height:500px;
-background:#00d4ff;
-filter:blur(200px);
-opacity:.2;
-bottom:-150px;
-right:-100px;
-animation:float2 15s infinite alternate;
-z-index:-3;
-}
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
 
-@keyframes float1{
-100%{
-transform:translate(200px,100px);
-}
-}
+    nav a {
+      text-decoration: none;
+      color: white;
+      transition: .3s;
+    }
+    nav a:hover {
+      color: #00eaff;
+    }
 
-@keyframes float2{
-100%{
-transform:translate(-200px,-100px);
-}
-}
+    /* ---- Hero ---- */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      text-align: center;
+    }
 
-/* ==========================
-   Navbar
-========================== */
+    .hero h1 {
+      font-size: 5rem;
+      margin-bottom: 10px;
+    }
+    .hero span {
+      color: #00eaff;
+    }
 
-nav{
-position:fixed;
-top:20px;
-left:50%;
-transform:translateX(-50%);
-width:90%;
-max-width:1200px;
-padding:15px 30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+    .typing {
+      font-size: 1.5rem;
+      height: 40px;
+      color: #00eaff;
+    }
 
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.1);
-border-radius:20px;
+    .btns {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-z-index:1000;
-}
+    .btn {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: .4s;
+      background: #00eaff;
+      color: black;
+      box-shadow: 0 0 30px #00eaff;
+    }
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+    }
 
-.logo{
-font-size:24px;
-font-weight:700;
-color:#00eaff;
-}
+    /* ---- Sections ---- */
+    section {
+      min-height: 100vh;
+      padding: 120px 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-nav ul{
-display:flex;
-gap:25px;
-list-style:none;
-}
+    .title {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      color: #00eaff;
+    }
 
-nav a{
-text-decoration:none;
-color:white;
-transition:.3s;
-}
+    .glass {
+      background: rgba(255, 255, 255, .05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, .1);
+      padding: 30px;
+      border-radius: 25px;
+    }
 
-nav a:hover{
-color:#00eaff;
-}
+    /* ---- Skills ---- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-/* ==========================
- Hero
-========================== */
+    .skill-card {
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .05);
+      transition: .4s;
+      text-align: center;
+    }
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px #00eaff;
+    }
 
-.hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-position:relative;
-text-align:center;
-}
+    /* ---- Projects ---- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
 
-.hero h1{
-font-size:5rem;
-margin-bottom:10px;
-}
+    .project-card {
+      background: rgba(255, 255, 255, .05);
+      padding: 25px;
+      border-radius: 20px;
+      transition: .4s;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px rgba(0, 234, 255, .4);
+    }
 
-.hero span{
-color:#00eaff;
-}
+    /* ---- Hobbies ---- */
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
 
-.typing{
-font-size:1.5rem;
-height:40px;
-color:#00eaff;
-}
+    .hobby {
+      padding: 30px;
+      background: rgba(255, 255, 255, .05);
+      border-radius: 20px;
+      text-align: center;
+      transition: .4s;
+    }
+    .hobby:hover {
+      transform: scale(1.05);
+    }
 
-.btns{
-margin-top:30px;
-display:flex;
-gap:20px;
-}
+    /* ---- Contact ---- */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
 
-.btn{
-padding:15px 30px;
-border:none;
-border-radius:50px;
-cursor:pointer;
-font-size:1rem;
-font-weight:600;
-transition:.4s;
-background:#00eaff;
-color:black;
-box-shadow:0 0 30px #00eaff;
-}
+    input, textarea {
+      padding: 15px;
+      background: #111;
+      border: none;
+      color: white;
+      border-radius: 10px;
+    }
+    textarea {
+      height: 150px;
+      resize: none;
+    }
 
-.btn:hover{
-transform:translateY(-5px) scale(1.05);
-}
+    .submit {
+      background: #00eaff;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      padding: 15px;
+      border-radius: 50px;
+      font-size: 1rem;
+      transition: .3s;
+    }
+    .submit:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px #00eaff;
+    }
 
-/* ==========================
- Sections
-========================== */
+    /* ---- Three.js canvas ---- */
+    #threeCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
 
-section{
-min-height:100vh;
-padding:120px 10%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-}
-
-.title{
-font-size:3rem;
-margin-bottom:40px;
-color:#00eaff;
-}
-
-.glass{
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,.1);
-padding:30px;
-border-radius:25px;
-}
-
-/* ==========================
- Skills
-========================== */
-
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.skill-card{
-padding:30px;
-border-radius:20px;
-background:rgba(255,255,255,.05);
-transition:.4s;
-text-align:center;
-}
-
-.skill-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px #00eaff;
-}
-
-/* ==========================
- Projects
-========================== */
-
-.project-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
-}
-
-.project-card{
-background:rgba(255,255,255,.05);
-padding:25px;
-border-radius:20px;
-transition:.4s;
-}
-
-.project-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 40px rgba(0,234,255,.4);
-}
-
-/* ==========================
- Hobbies
-========================== */
-
-.hobby-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.hobby{
-padding:30px;
-background:rgba(255,255,255,.05);
-border-radius:20px;
-text-align:center;
-transition:.4s;
-}
-
-.hobby:hover{
-transform:scale(1.05);
-}
-
-/* ==========================
- Contact
-========================== */
-
-form{
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-input,textarea{
-padding:15px;
-background:#111;
-border:none;
-color:white;
-border-radius:10px;
-}
-
-textarea{
-height:150px;
-resize:none;
-}
-
-.submit{
-background:#00eaff;
-color:black;
-font-weight:bold;
-cursor:pointer;
-}
-
-/* ==========================
- Three.js Canvas
-========================== */
-
-#threeCanvas{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
-}
-
-/* ==========================
- Responsive
-========================== */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:3rem;
-}
-
-.title{
-font-size:2rem;
-}
-
-nav ul{
-display:none;
-}
-
-}
-
-</style>
+    /* ---- responsive ---- */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .title {
+        font-size: 2rem;
+      }
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div id="particles-js"></div>
-
-<div class="gradient1"></div>
-<div class="gradient2"></div>
-
-<nav>
-<div class="logo">NV</div>
-
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#hobbies">Hobbies</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-
-<section class="hero">
-
-<canvas id="threeCanvas"></canvas>
-
-<h1>Hello, I'm <span>Nethu V</span></h1>
-
-<div class="typing"></div>
-
-<div class="btns">
-<button class="btn">View Projects</button>
-<button class="btn">Contact Me</button>
-</div>
-
-</section>
-
-<section id="about">
-
-<h2 class="title">About Me</h2>
-
-<div class="glass">
-<p>
-I am nethra, as a first year Bsc.IT student in RD national college of arts and science, erode.
-Officially, I’m a tech student.Practically, I’m a future app developer obsessed with basic performance code and modern design.
-I don't wait for opportunities—I build them.I'm interested to learn about tech,coding etc,.
-I really enjoy searching for and learning how to create website and apps for free these days.
-My focus is to join in Google as a software & app developer.
-Joining google has been a dream of mine since I was young.
-And i am a great loyalty person.I will work hard to succeed in life.
-</p>
-</div>
-
-</section>
-
-<section id="skills">
-
-<h2 class="title">Skills</h2>
-
-<div class="skills-grid">
-
-<div class="skill-card">Hard work</div>
-<div class="skill-card">High knowledge</div>
-<div class="skill-card">Team work</div>
-<div class="skill-card">Creativity</div>
-<div class="skill-card">Tech learing</div>
-<div class="skill-card">Math</div>
-
-</div>
-
-</section>
-
-<section id="projects">
-
-<h2 class="title">Projects</h2>
-
-<div class="project-grid">
-
-<div class="project-card">
-<h3>Portfolio Website</h3>
-<p>Modern futuristic portfolio.</p>
-</div>
-
-<div class="project-card">
-<h3>3D Landing Page</h3>
-<p>Interactive Three.js experience.</p>
-</div>
-
-<div class="project-card">
-<h3>Creative Dashboard</h3>
-<p>Premium analytics interface.</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="hobbies">
-
-<h2 class="title">Hobbies</h2>
-
-<div class="hobby-grid">
-
-<div class="hobby">📚 Reading</div>
-<div class="hobby">🎮 Gaming</div>
-<div class="hobby">📷 Photography</div>
-<div class="hobby">🎵 Music</div>
-<div class="hobby">✈️ Travel</div>
-<div class="hobby">💻 Learning Tech</div>
-
-</div>
-
-</section>
-
-<section id="contact">
-
-<h2 class="title">Contact</h2>
-
-<div class="glass">
-
-<form action="mailto:skynet.nethra@gmail.com" method="post" enctype="text/plain">
-<input type="text" placeholder="Name">
-<input type="email"placeholder="Email">
-<input type="text" placeholder="Subject">
-<textarea placeholder="Message"></textarea>
-
-<button class="submit">Send Message</button>
-</form>
-
-</div>
-
-</section>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
-<script>
-
-/* Typing Effect */
-
-const roles=[
-"Creative Developer",
-"Designer",
-"Problem Solver",
-"Tech Enthusiast"
-];
-
-let role=0;
-let char=0;
-
-const typing=document.querySelector(".typing");
-
-function type(){
-
-if(char<roles[role].length){
-typing.innerHTML+=roles[role][char];
-char++;
-setTimeout(type,100);
-}
-else{
-setTimeout(erase,1500);
-}
-
-}
-
-function erase(){
-
-if(char>0){
-typing.innerHTML=roles[role].substring(0,char-1);
-char--;
-setTimeout(erase,50);
-}
-else{
-role=(role+1)%roles.length;
-setTimeout(type,300);
-}
-
-}
-
-type();
-
-/* Particles */
-
-particlesJS("particles-js",{
-particles:{
-number:{value:80},
-size:{value:3},
-move:{speed:2},
-line_linked:{
-enable:true
-}
-}
-});
-
-/* Three.js */
-
-const scene=new THREE.Scene();
-
-const camera=new THREE.PerspectiveCamera(
-75,
-window.innerWidth/window.innerHeight,
-0.1,
-1000
-);
-
-const renderer=new THREE.WebGLRenderer({
-canvas:document.getElementById("threeCanvas"),
-alpha:true
-});
-
-renderer.setSize(window.innerWidth,window.innerHeight);
-
-const geometry=new THREE.TorusKnotGeometry(1,0.3,100,16);
-
-const material=new THREE.MeshBasicMaterial({
-wireframe:true
-});
-
-const torus=new THREE.Mesh(
-geometry,
-material
-);
-
-scene.add(torus);
-
-camera.position.z=5;
-
-function animate(){
-
-requestAnimationFrame(animate);
-
-torus.rotation.x+=0.01;
-torus.rotation.y+=0.01;
-
-renderer.render(scene,camera);
-
-}
-
-animate();
-
-</script>
-
+  <!-- particles background -->
+  <div id="particles-js"></div>
+
+  <div class="gradient1"></div>
+  <div class="gradient2"></div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">NV</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#hobbies">Hobbies</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <canvas id="threeCanvas"></canvas>
+    <h1>Hello, I'm <span>Nethu V</span></h1>
+    <div class="typing"></div>
+    <div class="btns">
+      <button class="btn" onclick="document.getElementById('projects').scrollIntoView()">View Projects</button>
+      <button class="btn" onclick="document.getElementById('contact').scrollIntoView()">Contact Me</button>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="title">About Me</h2>
+    <div class="glass">
+      <p>
+        I am nethra, as a first year Bsc.IT student in RD national college of arts and science, erode.<br>
+        Officially, I’m a tech student. Practically, I’m a future app developer obsessed with basic performance code and modern design.<br>
+        I don't wait for opportunities—I build them. I'm interested to learn about tech, coding etc.<br>
+        I really enjoy searching for and learning how to create website and apps for free these days.<br>
+        My focus is to join in Google as a software & app developer.<br>
+        Joining google has been a dream of mine since I was young.<br>
+        And i am a great loyalty person. I will work hard to succeed in life.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="title">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">Hard work</div>
+      <div class="skill-card">High knowledge</div>
+      <div class="skill-card">Team work</div>
+      <div class="skill-card">Creativity</div>
+      <div class="skill-card">Tech learning</div>
+      <div class="skill-card">Math</div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2 class="title">Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>Modern futuristic portfolio.</p>
+      </div>
+      <div class="project-card">
+        <h3>3D Landing Page</h3>
+        <p>Interactive Three.js experience.</p>
+      </div>
+      <div class="project-card">
+        <h3>Creative Dashboard</h3>
+        <p>Premium analytics interface.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies -->
+  <section id="hobbies">
+    <h2 class="title">Hobbies</h2>
+    <div class="hobby-grid">
+      <div class="hobby">📚 Reading</div>
+      <div class="hobby">🎮 Gaming</div>
+      <div class="hobby">📷 Photography</div>
+      <div class="hobby">🎵 Music</div>
+      <div class="hobby">✈️ Travel</div>
+      <div class="hobby">💻 Learning Tech</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="title">Contact</h2>
+    <div class="glass">
+      <!-- ✅ Gmail link: opens compose window with your email -->
+      <form action="mailto:skynet.nethra@gmail.com" method="post" enctype="text/plain">
+        <input type="text" placeholder="Your Name" name="name">
+        <input type="email" placeholder="Your Email" name="email">
+        <input type="text" placeholder="Subject" name="subject">
+        <textarea placeholder="Message" name="body"></textarea>
+        <button type="submit" class="submit">✉️ Send via Gmail</button>
+      </form>
+      <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
+        👉 Clicking "Send via Gmail" will open your default email client with my address: <strong>skynet.nethra@gmail.com</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+  <script>
+    // ---- Typing Effect ----
+    const roles = [
+      "Creative Developer",
+      "Designer",
+      "Problem Solver",
+      "Tech Enthusiast"
+    ];
+    let role = 0, char = 0;
+    const typing = document.querySelector(".typing");
+
+    function type() {
+      if (char < roles[role].length) {
+        typing.innerHTML += roles[role][char];
+        char++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 1500);
+      }
+    }
+
+    function erase() {
+      if (char > 0) {
+        typing.innerHTML = roles[role].substring(0, char - 1);
+        char--;
+        setTimeout(erase, 50);
+      } else {
+        role = (role + 1) % roles.length;
+        setTimeout(type, 300);
+      }
+    }
+    type();
+
+    // ---- Particles ----
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        color: { value: "#00eaff" },
+        shape: { type: "circle" },
+        size: { value: 3 },
+        move: { speed: 2 },
+        line_linked: { enable: true, color: "#00eaff", opacity: 0.3 }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" }
+        }
+      }
+    });
+
+    // ---- Three.js ----
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({
+      canvas: document.getElementById("threeCanvas"),
+      alpha: true
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const geometry = new THREE.TorusKnotGeometry(1, 0.3, 100, 16);
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x00eaff,
+      wireframe: true
+    });
+    const torus = new THREE.Mesh(geometry, material);
+    scene.add(torus);
+    camera.position.z = 5;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      torus.rotation.x += 0.01;
+      torus.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // ---- resize handler ----
+    window.addEventListener('resize', () => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    });
+  </script>
 </body>
 </html>
